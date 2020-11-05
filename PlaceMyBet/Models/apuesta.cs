@@ -44,4 +44,39 @@ namespace PlaceMyBet.Models
 
 
     }
+    public class apuestaDto2
+    {
+        public apuestaDto2(int idEvento, string tipo, double cuotaOver, double cuotaUnder, double dinero)
+        {
+            IdEvento = idEvento;
+            Tipo = tipo;
+            CuotaOver = cuotaOver;
+            CuotaUnder = cuotaUnder;
+            Dinero = dinero;
+        }
+
+        public int IdEvento { get; set; }
+        public string Tipo { get; set; }
+        public double CuotaOver { get; set; }
+        public double CuotaUnder { get; set; }
+        public double Dinero { get; set; }
+    }
+
+    public class apuestaDto3
+    {
+        public apuestaDto3(double mercado, string tipo, double cuotaOver, double cuotaUnder, double dinero)
+        {
+            Mercado = mercado;
+            Tipo = tipo;
+            CuotaOver = cuotaOver;
+            CuotaUnder = cuotaUnder;
+            Dinero = dinero;
+        }
+
+        public double Mercado { get; set; }
+        public string Tipo { get; set; }
+        public double CuotaOver { get; set; }
+        public double CuotaUnder { get; set; }
+        public double Dinero { get; set; }
+    }
 }

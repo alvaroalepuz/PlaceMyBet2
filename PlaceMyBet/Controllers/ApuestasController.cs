@@ -15,13 +15,31 @@ namespace PlaceMyBet.Controllers
         {
             return new string[] { "value1", "value2" };
         }
-        //GET: api/Apuestas?TipoMercado,CuotaUnder,CuotaOver
-        public apuestaDto Get(int id)
+        //GET: api/Apuestas/1
+        public apuestaDto3 Get(int id)
         {
             var repo = new apuestaRepository();
-            apuestaDto e = repo.RetriveCosas();
+            apuestaDto3 e = repo.RetriveFiltro3();
             return e;
         }
+        //GET: api/Apuestas?TipoMercado,CuotaUnder,CuotaOver
+        [Authorize(Roles = "Admin")]
+        //public apuestaDto2 Get(int id)
+        //{
+        //    var repo = new apuestaRepository();
+        //    apuestaDto2 e = repo.RetriveFiltro();
+        //    return e;
+        //}
+
+        //GET: api/Apuestas?TipoMercado,CuotaUnder,CuotaOver
+        //[Authorize(Roles ="Admin")]
+        //public apuestaDto Get(int id)
+        //{
+        //    var repo = new apuestaRepository();
+        //    apuestaDto e = repo.RetriveFiltrado();
+        //    return e;
+        //}
+
         // GET: api/Apuestas/5
         //public apuesta Get(int id)
         //{

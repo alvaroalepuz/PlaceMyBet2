@@ -57,6 +57,57 @@ namespace PlaceMyBet.Models
             }
             return a;
         }
+        internal apuestaDto RetriveFiltrado()
+        {
+
+            MySqlConnection con = Connect();
+            MySqlCommand command = con.CreateCommand();
+            command.CommandText = "select Tipo, Dinero ,CuotaOver,CuotaUnder,emailid, Fecha from apuesta INNER JOIN mercado INNER JOIN evento";
+            con.Open();
+            MySqlDataReader res = command.ExecuteReader();
+            apuestaDto a = null;
+            if (res.Read())
+            {
+                Debug.WriteLine("Recuperado: " + res.GetString(0) + " " + res.GetDouble(1) + " " + res.GetDouble(2) + " " + res.GetDouble(3) + " " + res.GetString(4) + " " + res.GetDateTime(5).ToString("yyyy-MM-dd"));
+                a = new apuestaDto(res.GetString(0), res.GetDouble(1), res.GetDouble(2), res.GetInt32(3), res.GetString(4), res.GetDateTime(5).ToString("yyyy-MM-dd"));
+
+            }
+            return a;
+        }
+        internal apuestaDto2 RetriveFiltro()
+        {
+
+            MySqlConnection con = Connect();
+            MySqlCommand command = con.CreateCommand();
+            command.CommandText = "select Tipo, Dinero ,CuotaOver,CuotaUnder,emailid, Fecha from apuesta INNER JOIN mercado INNER JOIN evento";
+            con.Open();
+            MySqlDataReader res = command.ExecuteReader();
+            apuestaDto2 a = null;
+            if (res.Read())
+            {
+                Debug.WriteLine("Recuperado: " + res.GetInt32(0) + " " + res.GetString(1) + " " + res.GetDouble(2) + " " + res.GetDouble(3) + " " + res.GetDouble(4));
+                a = new apuestaDto2(res.GetInt32(0), res.GetString(1), res.GetDouble(2), res.GetDouble(3), res.GetDouble(4));
+
+            }
+            return a;
+        }
+        internal apuestaDto3 RetriveFiltro3()
+        {
+
+            MySqlConnection con = Connect();
+            MySqlCommand command = con.CreateCommand();
+            command.CommandText = "SELECT mercado , Tipo ,CuotaOver, CuotaUnder ,Dinero FROM mercado INNER JOIN apuesta INNER JOIN usuarios WHERE IDMercado = MercadoIDFK AND IDMercado = MercadoIDFK3;";
+            con.Open();
+            MySqlDataReader res = command.ExecuteReader();
+            apuestaDto3 a = null;
+            if (res.Read())
+            {
+                Debug.WriteLine("Recuperado: " + res.GetDouble(0) + " " + res.GetString(1) + " " + res.GetDouble(2) + " " + res.GetDouble(3) + " " + res.GetDouble(4));
+                a = new apuestaDto3(res.GetDouble(0), res.GetString(1), res.GetDouble(2), res.GetDouble(3), res.GetDouble(4));
+
+            }
+            return a;
+        }
         internal void Save(apuesta apuesta)
         {
 
