@@ -16,6 +16,7 @@ namespace PlaceMyBet.Controllers
             return new string[] { "value1", "value2" };
         }
         //GET: api/Apuestas/1
+        [Authorize(Roles = "Admin")]
         public apuestaDto3 Get(int id)
         {
             var repo = new apuestaRepository();
@@ -23,7 +24,7 @@ namespace PlaceMyBet.Controllers
             return e;
         }
         //GET: api/Apuestas?TipoMercado,CuotaUnder,CuotaOver
-        [Authorize(Roles = "Admin")]
+
         //public apuestaDto2 Get(int id)
         //{
         //    var repo = new apuestaRepository();

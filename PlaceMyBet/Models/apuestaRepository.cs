@@ -79,7 +79,7 @@ namespace PlaceMyBet.Models
 
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
-            command.CommandText = "select Tipo, Dinero ,CuotaOver,CuotaUnder,emailid, Fecha from apuesta INNER JOIN mercado INNER JOIN evento";
+            command.CommandText = "SELECT IdEvento , Tipo, CuotaOver, CuotaUnder ,Dinero FROM evento INNER JOIN mercado INNER JOIN apuesta WHERE Mercado = 1.5;";
             con.Open();
             MySqlDataReader res = command.ExecuteReader();
             apuestaDto2 a = null;
@@ -96,7 +96,7 @@ namespace PlaceMyBet.Models
 
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
-            command.CommandText = "SELECT mercado , Tipo ,CuotaOver, CuotaUnder ,Dinero FROM mercado INNER JOIN apuesta INNER JOIN usuarios WHERE IDMercado = MercadoIDFK AND IDMercado = MercadoIDFK3;";
+            command.CommandText = "SELECT mercado , Tipo ,CuotaOver, CuotaUnder ,Dinero FROM mercado INNER JOIN apuesta INNER JOIN usuario WHERE IDMercado = 1;";
             con.Open();
             MySqlDataReader res = command.ExecuteReader();
             apuestaDto3 a = null;
