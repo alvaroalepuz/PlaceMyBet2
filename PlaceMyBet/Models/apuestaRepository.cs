@@ -23,12 +23,13 @@ namespace PlaceMyBet.Models
             return con;
         }
 
-        internal apuesta Retrive()
+        internal apuesta Retriveid(int id)
         {
 
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
-            command.CommandText = "select * from apuesta";
+            command.CommandText = "select * from apuesta where idApuesta = @A";
+            command.Parameters.AddWithValue("@A" , id);
             con.Open();
             MySqlDataReader res = command.ExecuteReader();
             apuesta a = null;
@@ -40,6 +41,7 @@ namespace PlaceMyBet.Models
             }
             return a;
         }
+
         internal apuestaDto RetriveCosas()
         {
 
