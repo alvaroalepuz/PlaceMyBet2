@@ -19,9 +19,9 @@ namespace PlaceMyBet.Controllers
         //GET: api/Eventos?NombreDeEquipo
         public eventoDto Get(int id)
         {
-            var repo = new eventoRepository();
-            eventoDto e = repo.RetriveNameDate();
-            return e;
+            //var repo = new eventoRepository();
+            //eventoDto e = repo.RetriveNameDate();
+            return null;
         }
 
         //GET: api/Eventos/5

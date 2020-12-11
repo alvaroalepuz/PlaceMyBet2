@@ -7,9 +7,9 @@ namespace PlaceMyBet.Models
 {
     public class evento
     {
-        public evento(int idevento, string nombreNombreEquipoLocal, string nombreNombreEquipoVisitante, string fecha, int mercadoId)
+        public evento(int eventoId, string nombreNombreEquipoLocal, string nombreNombreEquipoVisitante, string fecha, int mercadoId)
         {
-            this.idevento = idevento;
+            this.eventoId = eventoId;
             NombreNombreEquipoLocal = nombreNombreEquipoLocal;
             NombreNombreEquipoVisitante = nombreNombreEquipoVisitante;
             this.fecha = fecha;
@@ -22,11 +22,16 @@ namespace PlaceMyBet.Models
             this.fecha = fecha;
         }
 
-        public int idevento { get; set; }
+        public int eventoId { get; set; }
         public string NombreNombreEquipoLocal { get; set; }
         public string NombreNombreEquipoVisitante { get; set; }
         public string fecha { get; set; }
         public int mercadoId { get; set; }
+   
+        public evento()
+        {
+
+        }    
     }
 }
 public class eventoDto

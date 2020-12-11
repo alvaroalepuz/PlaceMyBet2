@@ -7,20 +7,28 @@ namespace PlaceMyBet.Models
 {
     public class apuesta
     {
-        public apuesta(int idapuesta, string tipo, double dinero, int mercadoId, string emailId)
+        public apuesta(int apuestaId, string tipo, double dinero, int mercadoId, string emailId)
         {
-            this.idapuesta = idapuesta;
+            this.apuestaId = apuestaId;
             Tipo = tipo;
             Dinero = dinero;
             MercadoId = mercadoId;
             this.emailId = emailId;
         }
 
-        public int idapuesta { get; set; }
+        public int apuestaId { get; set; }
         public string Tipo { get; set; }
         public double Dinero { get; set; }
         public int MercadoId { get; set; }
         public string emailId { get; set; }
+
+        public mercado mercadoR { get; set; }
+
+        public apuesta()
+        {
+
+        }
+
     }
     public class apuestaDto
     {
@@ -46,16 +54,16 @@ namespace PlaceMyBet.Models
     }
     public class apuestaDto2
     {
-        public apuestaDto2(int idEvento, string tipo, double cuotaOver, double cuotaUnder, double dinero)
+        public apuestaDto2(int eventoId, string tipo, double cuotaOver, double cuotaUnder, double dinero)
         {
-            IdEvento = idEvento;
+            this.eventoId = eventoId;
             Tipo = tipo;
             CuotaOver = cuotaOver;
             CuotaUnder = cuotaUnder;
             Dinero = dinero;
         }
 
-        public int IdEvento { get; set; }
+        public int eventoId { get; set; }
         public string Tipo { get; set; }
         public double CuotaOver { get; set; }
         public double CuotaUnder { get; set; }

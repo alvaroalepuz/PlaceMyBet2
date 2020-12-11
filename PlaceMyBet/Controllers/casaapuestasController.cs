@@ -19,9 +19,9 @@ namespace PlaceMyBet.Controllers
         // GET: api/casaapuestas/5
         public casaapuestas Get(int id)
         {
-            var repo = new casaapuestasRepository();
-            casaapuestas a = repo.Retrive();
-            return a;
+            //var repo = new casaapuestasRepository();
+            //casaapuestas a = repo.Retrive();
+            return null;
         }
 
         // POST: api/casaapuestas

@@ -22,24 +22,26 @@ namespace PlaceMyBet.Controllers
         //    mercadoDto e = repo.RetriveTipoMercado();
         //    return e;
         //}
-        //GET: api/Mercados/2
-        
-        public mercado Get(int id)  
-        {
-            var repo = new mercadoRepository();
-            mercado e = repo.RetriveFiltrado();
-            return e;
-        }
-        // GET: api/Mercados/5
-        //public mercado Get(int id)
-        //{
-        //    var repo = new mercadoRepository();
-        //    mercado m = repo.Retrive();
-        //    return m;
-        //}
 
-        // POST: api/Mercados
-        public void Post([FromBody]string value)
+
+//GET: api/Mercados/2
+
+public mercado Get(int id)
+{
+    //var repo = new mercadoRepository();
+    //mercado e = repo.RetriveFiltrado();
+    return null;
+}
+// GET: api/Mercados/5
+//public mercado Get(int id)
+//{
+//    var repo = new mercadoRepository();
+//    mercado m = repo.Retrive();
+//    return m;
+//}
+
+// POST: api/Mercados
+public void Post([FromBody]string value)
         {
         }
 

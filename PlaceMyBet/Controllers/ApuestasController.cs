@@ -45,8 +45,8 @@ namespace PlaceMyBet.Controllers
         public apuesta Getid(int id)
         {
             var repo = new apuestaRepository();
-            apuesta a = repo.Retriveid(id);
-            return a;
+            apuesta a = repo.Retrieve(id);
+            return null;
         }
 
         // POST: api/Apuestas

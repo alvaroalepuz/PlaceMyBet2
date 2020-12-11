@@ -7,19 +7,27 @@ namespace PlaceMyBet.Models
 {
     public class casaapuestas
     {
-        public casaapuestas(int idCA, int saldoActual, string nombreBanco, string numeroTarjeta, string emailId)
+        public casaapuestas(int casaapuestasId, int saldoActual, string nombreBanco, int numeroTarjeta, string emailId)
         {
-            this.idCA = idCA;
+            this.casaapuestasId = casaapuestasId;
             SaldoActual = saldoActual;
             NombreBanco = nombreBanco;
             NumeroTarjeta = numeroTarjeta;
             this.emailId = emailId;
         }
 
-        public int idCA { get; set; }
+        public int casaapuestasId { get; set; }
         public int SaldoActual { get; set; }
         public string NombreBanco { get; set; }
-        public string NumeroTarjeta { get; set; }
+        public int NumeroTarjeta { get; set; }
         public string emailId { get; set; }
+   
+
+        public casaapuestas()
+        {
+
+        }
     }
+
+
 }
