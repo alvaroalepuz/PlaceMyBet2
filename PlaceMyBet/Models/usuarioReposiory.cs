@@ -24,7 +24,7 @@ namespace PlaceMyBet.Models
 
         }
         
-        internal usuario Retrieve(int id)
+        internal usuario Retrieve(string id)
         {
             usuario usuario;
 

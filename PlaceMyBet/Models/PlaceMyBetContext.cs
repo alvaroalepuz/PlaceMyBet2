@@ -37,7 +37,7 @@ namespace PlaceMyBet.Models
         //Inserció inicial de dades
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<usuario>().HasData(new usuario(1, "Alvaro", "Alepuz", 10, 1));
+            modelBuilder.Entity<usuario>().HasData(new usuario("alvaroalepuz99@gmail.com", "Alvaro", "Alepuz", 10, 1));
             modelBuilder.Entity<casaapuestas>().HasData(new casaapuestas(1, 300, "Bankia", 239458, "alvaroalepuz99@gmail.com"));
             modelBuilder.Entity<mercado>().HasData(new mercado(1, 1.5, 30, 90, 500, 100));
             modelBuilder.Entity<evento>().HasData(new evento(1, "Barcelona", "Madrid", "06-08-2077", 1));

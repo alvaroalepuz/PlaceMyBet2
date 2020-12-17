@@ -34,16 +34,3 @@ namespace PlaceMyBet.Models
         }    
     }
 }
-public class eventoDto
-{
-    public eventoDto(string nombreNombreEquipoLocal, string nombreNombreEquipoVisitante, string fecha)
-    {
-        NombreNombreEquipoLocal = nombreNombreEquipoLocal;
-        NombreNombreEquipoVisitante = nombreNombreEquipoVisitante;
-        this.fecha = fecha;
-    }
-
-    public string NombreNombreEquipoLocal { get; set; }
-    public string NombreNombreEquipoVisitante { get; set; }
-    public string fecha { get; set; }
-}

@@ -10,47 +10,30 @@ namespace PlaceMyBet.Controllers
 {
     public class ApuestasController : ApiController
     {
-        // GET: api/Apuestas
-        public IEnumerable<string> Get()
+        //GET: api/Apuestas
+        public List<apuesta> Get()
         {
-            return new string[] { "value1", "value2" };
+            var repo = new apuestaRepository();
+            List<apuesta> a = repo.Retrieve();
+            return a;
         }
-        //GET: api/Apuestas/1
-        //[Authorize(Roles = "Admin")]
-        //public apuestaDto3 Get(int id)
+
+        //public List<apuestaDTO> Get()
         //{
         //    var repo = new apuestaRepository();
-        //    apuestaDto3 e = repo.RetriveFiltro3();
-        //    return e;
-        //}
-        //GET: api/Apuestas?TipoMercado,CuotaUnder,CuotaOver
-
-        //public apuestaDto2 Get(int id)
-        //{
-        //    var repo = new apuestaRepository();
-        //    apuestaDto2 e = repo.RetriveFiltro();
-        //    return e;
+        //    List<apuestaDTO> m = repo.Retrieve();
+        //    return m;
         //}
 
-        //GET: api/Apuestas?TipoMercado,CuotaUnder,CuotaOver
-        //[Authorize(Roles ="Admin")]
-        //public apuestaDto Get(int id)
-        //{
-        //    var repo = new apuestaRepository();
-        //    apuestaDto e = repo.RetriveFiltrado();
-        //    return e;
-        //}
-
-        // GET: api/Apuestas?id=valor
+        // GET: api/Apuestas/1
         public apuesta Getid(int id)
         {
             var repo = new apuestaRepository();
-            apuesta a = repo.Retrieve(id);
-            return null;
+           apuesta a = repo.Retrieve(id);
+            return a;
         }
 
         // POST: api/Apuestas
-        [Authorize]
         public void Post([FromBody]apuesta apuesta)
         {
             var repo = new apuestaRepository();
@@ -60,11 +43,13 @@ namespace PlaceMyBet.Controllers
         // PUT: api/Apuestas/5
         public void Put(int id, [FromBody]string value)
         {
+
         }
 
         // DELETE: api/Apuestas/5
         public void Delete(int id)
         {
+            
         }
     }
 }

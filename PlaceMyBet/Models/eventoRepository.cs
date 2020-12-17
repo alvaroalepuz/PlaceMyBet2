@@ -23,11 +23,40 @@ namespace PlaceMyBet.Models
 
         }
 
+        internal evento Retrieve(int id)
+        {
+
+            evento evento = new evento();
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                evento = context.Evento.Find(id);
+            }
+
+            return evento;
+
+        }
+
         internal void Save(evento d)
         {
             PlaceMyBetContext context = new PlaceMyBetContext();
 
             context.Evento.Add(d);
+            context.SaveChanges();
+
+        }
+        internal void Delete(evento d)
+        {
+            PlaceMyBetContext context = new PlaceMyBetContext();
+
+            context.Evento.Remove(d);
+            context.SaveChanges();
+
+        }
+        internal void Update(evento d)
+        {
+            PlaceMyBetContext context = new PlaceMyBetContext();
+
+            context.Evento.Update(d);
             context.SaveChanges();
 
         }

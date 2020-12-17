@@ -32,11 +32,8 @@ namespace PlaceMyBet.Migrations
                     b.Property<string>("Tipo")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("emailId")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<int?>("usuarioId")
-                        .HasColumnType("int");
+                    b.Property<string>("usuarioId")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
                     b.HasKey("apuestaId");
 
@@ -53,7 +50,7 @@ namespace PlaceMyBet.Migrations
                             Dinero = 400.0,
                             MercadoId = 1,
                             Tipo = "under",
-                            emailId = "alvaroalepuz99@gmail.com"
+                            usuarioId = "alvaroalepuz99@gmail.com"
                         });
                 });
 
@@ -164,9 +161,8 @@ namespace PlaceMyBet.Migrations
 
             modelBuilder.Entity("PlaceMyBet.Models.usuario", b =>
                 {
-                    b.Property<int>("usuarioId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("usuarioId")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
                     b.Property<string>("Apellido")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
@@ -194,7 +190,7 @@ namespace PlaceMyBet.Migrations
                     b.HasData(
                         new
                         {
-                            usuarioId = 1,
+                            usuarioId = "alvaroalepuz99@gmail.com",
                             Apellido = "Alepuz",
                             Edad = 10,
                             MercadoId = 1,

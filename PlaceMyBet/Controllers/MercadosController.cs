@@ -10,43 +10,56 @@ namespace PlaceMyBet.Controllers
 {
     public class MercadosController : ApiController
     {
-        // GET: api/Mercados
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-        //GET: api/Mercados?TipoMercado,CuotaUnder,CuotaOver
-        //public mercadoDto Get(int id)
+        //GET: api/Mercados
+        //public IEnumerable<string> Get()
         //{
-        //    var repo = new mercadoRepository();
-        //    mercadoDto e = repo.RetriveTipoMercado();
-        //    return e;
+        //    return new string[] { "value1", "value2" };
         //}
 
-
-//GET: api/Mercados/2
-
-public mercado Get(int id)
-{
-    //var repo = new mercadoRepository();
-    //mercado e = repo.RetriveFiltrado();
-    return null;
-}
-// GET: api/Mercados/5
-//public mercado Get(int id)
-//{
-//    var repo = new mercadoRepository();
-//    mercado m = repo.Retrive();
-//    return m;
-//}
-
-// POST: api/Mercados
-public void Post([FromBody]string value)
+        //GET: api/Mercados
+        public List<mercado> Get()
         {
+            var repo = new mercadoRepository();
+            List<mercado> m = repo.Retrieve();
+            return m;
+        }
+        // GET: api/Mercados/1
+        public mercado Getid(int id)
+        {
+            var repo = new mercadoRepository();
+            mercado m = repo.Retrieve(id);
+            return m;
+        }
+        //GET: api/Mercados
+        //public List<mercado.mercadoDTO> Get()
+        //{
+        //    var repo = new mercadoRepository();
+        //    List<mercado.mercadoDTO> m = repo.Retrieve();
+        //    return m;
+        //}
+
+        internal List<mercado> Retrieve()
+        {
+
+            List<mercado> mercado = new List<mercado>();
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                mercado = context.Mercado.ToList();
+            }
+
+            return mercado;
+
+        }
+
+        // POST: api/Mercados
+        public void Post([FromBody] mercado mercado)
+        {
+            var repo = new mercadoRepository();
+            repo.Save(mercado);
         }
 
         // PUT: api/Mercados/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody] string value)
         {
         }
 

@@ -66,8 +66,7 @@ namespace PlaceMyBet.Migrations
                 name: "Usuario",
                 columns: table => new
                 {
-                    usuarioId = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    usuarioId = table.Column<string>(nullable: false),
                     Nombre = table.Column<string>(nullable: true),
                     Apellido = table.Column<string>(nullable: true),
                     Edad = table.Column<int>(nullable: false),
@@ -100,8 +99,7 @@ namespace PlaceMyBet.Migrations
                     Tipo = table.Column<string>(nullable: true),
                     Dinero = table.Column<double>(nullable: false),
                     MercadoId = table.Column<int>(nullable: false),
-                    emailId = table.Column<string>(nullable: true),
-                    usuarioId = table.Column<int>(nullable: true)
+                    usuarioId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -131,11 +129,6 @@ namespace PlaceMyBet.Migrations
                 values: new object[] { 1, 30.0, 90.0, 500.0, 100.0, 1.5 });
 
             migrationBuilder.InsertData(
-                table: "Apuesta",
-                columns: new[] { "apuestaId", "Dinero", "MercadoId", "Tipo", "emailId", "usuarioId" },
-                values: new object[] { 1, 400.0, 1, "under", "alvaroalepuz99@gmail.com", null });
-
-            migrationBuilder.InsertData(
                 table: "Evento",
                 columns: new[] { "eventoId", "NombreNombreEquipoLocal", "NombreNombreEquipoVisitante", "fecha", "mercadoId" },
                 values: new object[] { 1, "Barcelona", "Madrid", "06-08-2077", 1 });
@@ -143,7 +136,12 @@ namespace PlaceMyBet.Migrations
             migrationBuilder.InsertData(
                 table: "Usuario",
                 columns: new[] { "usuarioId", "Apellido", "Edad", "MercadoId", "Nombre", "casaapuestaRcasaapuestasId" },
-                values: new object[] { 1, "Alepuz", 10, 1, "Alvaro", null });
+                values: new object[] { "alvaroalepuz99@gmail.com", "Alepuz", 10, 1, "Alvaro", null });
+
+            migrationBuilder.InsertData(
+                table: "Apuesta",
+                columns: new[] { "apuestaId", "Dinero", "MercadoId", "Tipo", "usuarioId" },
+                values: new object[] { 1, 400.0, 1, "under", "alvaroalepuz99@gmail.com" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Apuesta_MercadoId",
