@@ -10,18 +10,18 @@ namespace PlaceMyBet.Models
 {
     public class mercadoRepository
     {
-        internal List<mercado> Retrieve()
-        {
+        //internal List<mercado> Retrieve()
+        //{
 
-            List<mercado> mercado = new List<mercado>();
-            using (PlaceMyBetContext context = new PlaceMyBetContext())
-            {
-                mercado = context.Mercado.ToList();
-            }
+        //    List<mercado> mercado = new List<mercado>();
+        //    using (PlaceMyBetContext context = new PlaceMyBetContext())
+        //    {
+        //        mercado = context.Mercado.ToList();
+        //    }
 
-            return mercado;
+        //    return mercado;
 
-        }
+        //}
 
 
 
@@ -39,24 +39,24 @@ namespace PlaceMyBet.Models
 
             return mercado;
         }
-        //public static mercado.mercadoDTO ToDTO(mercado m)
-        //{
-        //    return new mercado.mercadoDTO(m.Mercado, m.CuotaOver, m.CuotaUnder);
-        //}
+        public static mercado.mercadoDTO ToDTO(mercado m)
+        {
+            return new mercado.mercadoDTO(m.Mercado, m.CuotaOver, m.CuotaUnder);
+        }
 
-        //internal List<mercado.mercadoDTO> Retrieve()
-        //{
-        //    List<mercado.mercadoDTO> mercadodto= new List<mercado.mercadoDTO>();
+        internal List<mercado.mercadoDTO> Retrieve()
+        {
+            List<mercado.mercadoDTO> mercadodto = new List<mercado.mercadoDTO>();
 
-        //    using (PlaceMyBetContext context = new PlaceMyBetContext())
-        //    {
-        //        mercadodto = context.Mercado.Select(m => ToDTO(m)).ToList();
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                mercadodto = context.Mercado.Select(m => ToDTO(m)).ToList();
 
-        //    }
+            }
 
 
-        //    return mercadodto;
-        //}
+            return mercadodto;
+        }
 
 
         internal void Save(mercado d)

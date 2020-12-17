@@ -10,18 +10,18 @@ namespace PlaceMyBet.Models
 {
     public class apuestaRepository
     {
-        internal List<apuesta> Retrieve()
-        {
+        //internal List<apuesta> Retrieve()
+        //{
 
-            List<apuesta> apuesta = new List<apuesta>();
-            using (PlaceMyBetContext context = new PlaceMyBetContext())
-            {
-                apuesta = context.Apuesta.ToList();
-            }
+        //    List<apuesta> apuesta = new List<apuesta>();
+        //    using (PlaceMyBetContext context = new PlaceMyBetContext())
+        //    {
+        //        apuesta = context.Apuesta.ToList();
+        //    }
 
-            return apuesta;
+        //    return apuesta;
 
-        }
+        //}
 
         internal apuesta Retrieve(int id)
         {
@@ -40,39 +40,28 @@ namespace PlaceMyBet.Models
 
 
 
-        //public static apuestaDTO ToDTO(apuesta a,evento e,usuario u)
-        //{
-        //    return new apuestaDTO(u.usuarioId, e.eventoId, a.Tipo,a.Dinero);
-        //}
+        public static apuestaDTO ToDTO(apuesta a, evento e, usuario u)
+        {
+            return new apuestaDTO(u.usuarioId, e.eventoId, a.Tipo, a.Dinero);
+        }
 
-        //internal List<apuestaDTO> Retrieve()
-        //{
-        //    List<apuestaDTO> apuestadto = new List<apuestaDTO>();
-        //    evento e = new evento();
-        //    usuario u = new usuario();
+        internal List<apuestaDTO> Retrieve()
+        {
+            List<apuestaDTO> apuestadto = new List<apuestaDTO>();
+            evento e = new evento();
+            usuario u = new usuario();
 
-        //    using (PlaceMyBetContext context = new PlaceMyBetContext())
-        //    {
-        //        apuestadto = context.Apuesta
-        //            .Select(a => ToDTO(a,e,u))
-        //            .Include(p =>p.mercadoR).ToList();
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                apuestadto = context.Apuesta
+                    .Select(a => ToDTO(a, e, u))
+                    .Include(p => p.mercadoR).ToList();
 
-        //    }
-
-
-        //    return apuestadto;
-        //}
+            }
 
 
-
-
-
-
-
-
-
-
-
+            return apuestadto;
+        }
 
 
 
