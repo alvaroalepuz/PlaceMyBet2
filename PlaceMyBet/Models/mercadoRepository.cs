@@ -62,9 +62,10 @@ namespace PlaceMyBet.Models
         internal void Save(mercado d)
         {
             PlaceMyBetContext context = new PlaceMyBetContext();
-            var mercado = new mercado { mercadoId = 2, Mercado = 1.3, CuotaOver = 20, CuotaUnder = 70, DineroOver = 300, DineroUnder = 50 };
+
             context.Mercado.Add(d);
             context.SaveChanges();
+
 
         }
         //private MySqlConnection Connect()
