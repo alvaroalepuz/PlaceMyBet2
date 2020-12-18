@@ -1,10 +1,10 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing.Text;
 using System.Linq;
 using System.Web;
+using Microsoft.EntityFrameworkCore;
 
 namespace PlaceMyBet.Models
 {
@@ -30,6 +30,20 @@ namespace PlaceMyBet.Models
             using (PlaceMyBetContext context = new PlaceMyBetContext())
             {
                 evento = context.Evento.Find(id);
+            }
+
+            return evento;
+
+        }
+        internal List<evento> Retrieve(string nombre)
+        {
+            List<evento> evento = new List<evento>();
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                evento = context.Evento.ToList()
+                    .Where(s => s.NombreNombreEquipoLocal == nombre)
+                    .Where(a=> a.NombreNombreEquipoVisitante == nombre)
+                    .ToList();
             }
 
             return evento;
