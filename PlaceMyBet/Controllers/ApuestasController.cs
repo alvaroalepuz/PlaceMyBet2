@@ -18,6 +18,7 @@ namespace PlaceMyBet.Controllers
             return a;
         }
 
+        //GET: api/Apuestas/DTO
         //public List<apuestaDTO> Get()
         //{
         //    var repo = new apuestaRepository();
