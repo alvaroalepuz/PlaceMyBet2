@@ -43,6 +43,7 @@ namespace PlaceMyBet.Models
                 evento = context.Evento.ToList()
                     .Where(s => s.NombreNombreEquipoLocal == nombre)
                     .Where(a=> a.NombreNombreEquipoVisitante == nombre)
+
                     .ToList();
             }
 
@@ -50,11 +51,12 @@ namespace PlaceMyBet.Models
 
         }
 
-        internal void Save(evento d)
+        internal void Save(evento e,mercado m)
         {
             PlaceMyBetContext context = new PlaceMyBetContext();
 
-            context.Evento.Add(d);
+            context.Evento.Add(e);
+            context.Mercado.Add(m);
             context.SaveChanges();
 
         }
